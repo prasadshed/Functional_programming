@@ -18,21 +18,7 @@ public class FP02Functional {
 		//System.out.println(squaredNumbers);
 		System.out.println(evenNumbersOnly);
 		
-		// 0 12
-		// 12 9 
-		// 21 13
-		// 34 4
-		// 38 6
-		// 44 2
-		// 46 4
-		// 50 12
-		// 62 15
-		// 77
 		
-		// int sum = addListFunctional(numbers);
-		//
-		// System.out.println(sum);
-
 	}
 	
 	private static List<Integer> squareList(List<Integer> numbers) {
