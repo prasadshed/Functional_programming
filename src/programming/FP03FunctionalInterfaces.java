@@ -9,17 +9,6 @@ import java.util.function.Supplier;
 
 public class FP03FunctionalInterfaces {
 	
-	/*
-	 
-	 boolean isEven(int x) {
-	 	return x%2==0;
-	 }
-	 
-	 int squared(int x) {
-	 	return x * x;
-	 }
-	  
-	 */
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
@@ -61,7 +50,7 @@ public class FP03FunctionalInterfaces {
 			.forEach(sysoutConsumer2);
 
 		BinaryOperator<Integer> sumBinaryOperator = Integer::sum;
-		//BinaryOperator<Integer> sumBinaryOperator = (x,y) => x + y;
+		
 		
 		
 		BinaryOperator<Integer> sumBinaryOperator2 = new BinaryOperator<Integer>() {

@@ -18,7 +18,7 @@ public class FP03LambdaExpressions {
 		Integer sum = numbers.stream().reduce(0, (Integer x,Integer y) -> x + y);
 		
 		Supplier<Integer> randomSupplier = () -> {
-			 // create instance of Random class 
+			 
 	        Random rand = new Random(); 
 	        return rand.nextInt(1000); 
 		};

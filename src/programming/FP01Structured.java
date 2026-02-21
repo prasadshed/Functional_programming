@@ -8,7 +8,6 @@ public class FP01Structured {
 
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		
-		//printAllNumbersInListStructured(numbers);
 		printEvenNumbersInListStructured(numbers);
 		
 
@@ -23,7 +22,6 @@ public class FP01Structured {
 	}
 
 	private static void printEvenNumbersInListStructured(List<Integer> numbers) {
-		// How to loop the numbers?
 		for (int number : numbers) {
 			if (number % 2 == 0) {
 				System.out.println(number);

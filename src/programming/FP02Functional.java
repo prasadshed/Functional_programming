@@ -15,7 +15,6 @@ public class FP02Functional {
 										.filter(x -> x%2==0)
 										.collect(Collectors.toList());
 		
-		//System.out.println(squaredNumbers);
 		System.out.println(evenNumbersOnly);
 		
 		

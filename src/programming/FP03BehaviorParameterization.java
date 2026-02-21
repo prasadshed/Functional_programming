@@ -12,9 +12,6 @@ public class FP03BehaviorParameterization {
 		
 		List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 		
-		//filterAndPrint(numbers, x -> x%2==0);
-
-		//filterAndPrint(numbers, x -> x%2!=0);
 		
 		filterAndPrint(numbers, x -> x%3==0);
 		

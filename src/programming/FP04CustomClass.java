@@ -67,7 +67,7 @@ public class FP04CustomClass {
 				new Course("Azure", "Cloud", 99, 21000), new Course("Docker", "Cloud", 92, 20000),
 				new Course("Kubernetes", "Cloud", 91, 20000));
 
-		// allMatch, noneMatch, anyMatch
+		
 		Predicate<Course> reviewScoreGreaterThan95Predicate 
 			= course -> course.getReviewScore() > 95;
 
@@ -92,7 +92,6 @@ public class FP04CustomClass {
 				courses.stream()
 				.sorted(comparingByNoOfStudentsIncreasing)
 				.collect(Collectors.toList()));
-		//[FullStack:14000:91, Spring Boot:18000:95, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, AWS:21000:92, Azure:21000:99, API:22000:97, Microservices:25000:96]
 
 		Comparator<Course> comparingByNoOfStudentsDecreasing 
 					= Comparator.comparingInt(Course::getNoOfStudents).reversed();
@@ -101,7 +100,6 @@ public class FP04CustomClass {
 				courses.stream()
 				.sorted(comparingByNoOfStudentsDecreasing)
 				.collect(Collectors.toList()));
-		//[Microservices:25000:96, API:22000:97, AWS:21000:92, Azure:21000:99, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95, FullStack:14000:91]
 		
 		
 		Comparator<Course> comparingByNoOfStudentsAndNoOfReviews 
@@ -113,21 +111,18 @@ public class FP04CustomClass {
 				courses.stream()
 				.sorted(comparingByNoOfStudentsAndNoOfReviews)
 				.collect(Collectors.toList()));
-		//[Microservices:25000:96, API:22000:97, Azure:21000:99, AWS:21000:92, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95, FullStack:14000:91]
 
 		System.out.println(
 				courses.stream()
 				.sorted(comparingByNoOfStudentsAndNoOfReviews)
 				.limit(5)
 				.collect(Collectors.toList()));
-		//[Microservices:25000:96, API:22000:97, Azure:21000:99, AWS:21000:92, Spring:20000:98]
 		
 		System.out.println(
 				courses.stream()
 				.sorted(comparingByNoOfStudentsAndNoOfReviews)
 				.skip(3)
 				.collect(Collectors.toList()));
-		//[AWS:21000:92, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95, FullStack:14000:91]
 
 
 		System.out.println(
@@ -136,28 +131,23 @@ public class FP04CustomClass {
 				.skip(3)
 				.limit(5)
 				.collect(Collectors.toList()));
-		//[AWS:21000:92, Spring:20000:98, Docker:20000:92, Kubernetes:20000:91, Spring Boot:18000:95]
 		
 		System.out.println(courses);
 		
-		//[Spring:20000:98, Spring Boot:18000:95, API:22000:97, Microservices:25000:96, FullStack:14000:91, AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91]
 		
 		System.out.println(
 			courses.stream()
 			     .takeWhile(course -> course.getReviewScore()>=95)
 			     .collect(Collectors.toList()));
-		//[Spring:20000:98, Spring Boot:18000:95, API:22000:97, Microservices:25000:96]
 
 		System.out.println(
 				courses.stream()
 				     .dropWhile(course -> course.getReviewScore()>=95)
 				     .collect(Collectors.toList()));
-		//[FullStack:14000:91, AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91]
 
 		System.out.println(
 				courses.stream()
 				.max(comparingByNoOfStudentsAndNoOfReviews));
-		//Optional[FullStack:14000:91]
 
 		System.out.println(
 				courses.stream()
@@ -165,8 +155,6 @@ public class FP04CustomClass {
 				.orElse(new Course("Kubernetes", "Cloud", 91, 20000))
 				);
 				
-		//Optional[Microservices:25000:96]
-		//Microservices:25000:96
 	
 		System.out.println(
 			courses.stream()
@@ -174,8 +162,7 @@ public class FP04CustomClass {
 			.min(comparingByNoOfStudentsAndNoOfReviews)
 			.orElse(new Course("Kubernetes", "Cloud", 91, 20000))
 				);
-		//Optional.empty
-		//Kubernetes:20000:91
+		
 		
 		System.out.println(
 				courses.stream()
@@ -188,62 +175,55 @@ public class FP04CustomClass {
 				courses.stream()
 				.filter(reviewScoreGreaterThan95Predicate)
 				.findFirst()
-					);//Optional[Spring:20000:98]
+					);
 
 		System.out.println(
 				courses.stream()
 				.filter(reviewScoreGreaterThan95Predicate)
 				.findAny()
-					);//Optional[Spring:20000:98]
+					);
 
 		System.out.println(
 				courses.stream()
 				.filter(reviewScoreGreaterThan95Predicate)
 				.mapToInt(Course::getNoOfStudents)
-				.sum());//88000
+				.sum());
 
 		System.out.println(
 				courses.stream()
 				.filter(reviewScoreGreaterThan95Predicate)
 				.mapToInt(Course::getNoOfStudents)
-				.average());//OptionalDouble[22000.0]
+				.average());
+		System.out.println(
+				courses.stream()
+				.filter(reviewScoreGreaterThan95Predicate)
+				.mapToInt(Course::getNoOfStudents)
+				.count());
 
 		System.out.println(
 				courses.stream()
 				.filter(reviewScoreGreaterThan95Predicate)
 				.mapToInt(Course::getNoOfStudents)
-				.count());//4
-
-		System.out.println(
-				courses.stream()
-				.filter(reviewScoreGreaterThan95Predicate)
-				.mapToInt(Course::getNoOfStudents)
-				.max());//OptionalInt[25000]
+				.max());
 		
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory)));
-		//{Cloud=[AWS:21000:92, Azure:21000:99, Docker:20000:92, Kubernetes:20000:91], 
-		//  FullStack=[FullStack:14000:91], 
-		// Microservices=[API:22000:97, Microservices:25000:96],
-		// Framework=[Spring:20000:98, Spring Boot:18000:95]}
+		
 
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, Collectors.counting())));
-		//{Cloud=4, FullStack=1, Microservices=2, Framework=2}
 
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, 
 						Collectors.maxBy(Comparator.comparing(Course::getReviewScore)))));
-		//{Cloud=Optional[Azure:21000:99], FullStack=Optional[FullStack:14000:91], Microservices=Optional[API:22000:97], Framework=Optional[Spring:20000:98]}
 
 		System.out.println(
 				courses.stream()
 				.collect(Collectors.groupingBy(Course::getCategory, 
 						Collectors.mapping(Course::getName, Collectors.toList()))));
-		//{Cloud=[AWS, Azure, Docker, Kubernetes], FullStack=[FullStack], Microservices=[API, Microservices], Framework=[Spring, Spring Boot]}
 		
 		
 		Predicate<Course> reviewScoreGreaterThan95Predicate2 

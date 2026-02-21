@@ -17,7 +17,7 @@ public class FP03MethodReferences {
 					"Kubernetes");
 		
 		courses.stream()
-		 //.map(str -> str.toUpperCase())
+		
 		 .map(String::toUpperCase)
 		 .forEach(FP03MethodReferences::print);
 		

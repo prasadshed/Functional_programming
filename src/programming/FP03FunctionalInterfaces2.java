@@ -36,7 +36,7 @@ public class FP03FunctionalInterfaces2 {
 			return random.nextInt(1000);
 		};
 		
-		//System.out.println(randomIntegerSupplier.get());
+		
 		
 		UnaryOperator<Integer> unaryOperator = x -> 3 * x;
 		System.out.println(unaryOperator.apply(10));
@@ -64,20 +64,6 @@ public class FP03FunctionalInterfaces2 {
 		
 		IntBinaryOperator intBinaryOperator = (x,y) -> x + y;
 		
-		//IntBinaryOperator
-		//IntConsumer
-		//IntFunction
-		//IntPredicate
-		//IntSupplier
-		//IntToDoubleFunction
-		//IntToLongFunction
-		//IntUnaryOperator
 		
-		//Long, Double, Int
-		
-
-		//numbers.stream().filter(isEvenPredicate).map(squareFunction).forEach(sysoutConsumer);
-
-		//int sum = numbers.stream().reduce(0, sumBinaryOperator);
 	}
 }
