@@ -25,9 +25,7 @@ public class FP03LambdaExpressions {
 		
 		System.out.println(randomSupplier.get());
 		
-		//Playing with Return Statements
 		
-		//Playing with Braces
 		
 		
 	}
