@@ -14,6 +14,8 @@ public class StreamApi {
 		a.add(77);
 		long s=a.stream().count();
 		System.out.println(s);
+		int mx=a.stream().max(Integer::compare).get();
+		System.out.println(mx);
 	}
 	
 
